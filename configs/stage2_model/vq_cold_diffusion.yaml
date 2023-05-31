@@ -1,0 +1,33 @@
+model:
+  target: stage2_models.vq_cold_diffusion.Point2textModelStage2
+  params:
+    learning_rate: 1e-4
+    diffusion_step: 100
+    hidden_size: 512
+    depth: 6
+    heads: 8
+    dropout: 0.1
+    optim_type: adam
+    cold_diffusion: True
+    use_discrete_cfg: False
+    empty_text_prob: 0.1
+    unconditional_guidance_scale: 2.0
+    sample_dir: experiments/text2pose/vq_diffusion/sampler_cfg
+    vocab_file: Data/ProgressiveTransformersSLP/src_vocab.txt
+    resume_ckpt: ""
+    stage1_model_config:
+      target: stage1_models.pose_vqvae.PoseVQVAE
+      ckpt_path: experiments/pose_vqvae/lightning_logs/version_2/checkpoints/epoch=113-step=16872-val_wer=0.0000-val_rec_loss=0.0124-val_ce_loss=0.0000.ckpt
+    backtrans_model_config: 
+      target: backmodels.point2text_model.BackTranslateModel
+      ckpt_path: experiments/backmodel/lightning_logs/small_v0/checkpoints/epoch=21-step=19514-val_wer=0.5195.ckpt
+
+data:
+  target: data_phoneix.phonex_data.PhoenixPoseData
+  params:
+    args:
+      batchSize: 16
+      num_workers: 32
+      max_frames_num: 300
+      data_path: Data/ProgressiveTransformersSLP
+      vocab_file: Data/ProgressiveTransformersSLP/src_vocab.txt
