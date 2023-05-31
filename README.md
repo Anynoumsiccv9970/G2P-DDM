@@ -32,7 +32,7 @@ python3 -m train_pose_vqvae \
 ## Stage 2: Discrete Diffusion Model for Latent Prior Learning
 ![image](imgs/diffusion.png)
 ```bash
-python -m train_text2pose --gpus 4 --gpu_ids "0,1,2,3" \
+python3 -m train_text2pose --gpus 4 --gpu_ids "0,1,2,3" \
     --stage2_model "configs/stage2_model/vq_diffusion_codeunet.yaml"  \
     --default_root_dir "experiments/text2pose/vq_diffusion_codeunet"
 ```
@@ -40,5 +40,7 @@ python -m train_text2pose --gpus 4 --gpu_ids "0,1,2,3" \
 # Inference
 
 ```
-bash test_test2pose.sh
+python3 -m train_text2pose --gpus 8 --gpu_ids "0,1,2,3,4,5,6,7" \
+    --stage2_model "configs/stage2_model/vq_diffusion_codeunet.yaml"  \
+    --default_root_dir "experiments/text2pose/test"
 ```
