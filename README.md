@@ -1,5 +1,5 @@
 # G2P-DDM
-[Project Link](https://slpdiffusier.github.io/g2p-ddm/) | [Demo Link](https://slpdiffusier.github.io/g2p-ddm/)
+[Project Link](https://slpdiffusier.github.io/g2p-ddm/) | [Demo Link](https://slpdiffusier.github.io/g2p-ddm/) | [Supplementary Materials](https://github.com/Anynoumsiccv9970/G2P-DDM/blob/main/ICCV9970_supplementary.pdf)
 
 This repository contains the implementation of our paper "G2P-DDM: Generating Sign Pose Sequence from Gloss Sequence with Discrete Diffusion Model".
 
